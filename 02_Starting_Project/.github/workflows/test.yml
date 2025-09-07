@@ -1,0 +1,25 @@
+name: Run tests
+
+# Trigger the workflow when a new commmit is pushed to the remote repo
+on: push
+
+jobs:
+
+  # Job name
+  test:
+
+    # Running environment
+    runs-on: ubuntu-latest
+
+    # What will this job do
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm test

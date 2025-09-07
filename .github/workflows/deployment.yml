@@ -1,7 +1,7 @@
 name: Deploy
 
 # Trigger the workflow when a new commmit is pushed to the remote repo
-on: push
+on: [push, workflow_dispatch]
 
 jobs:
 
